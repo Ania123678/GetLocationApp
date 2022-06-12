@@ -17,6 +17,7 @@ public class LocAdapter extends RecyclerView.Adapter<LocAdapter.MyViewHolder> {
     ArrayList<String> id, longitude, latitude, altitude, time, speed, accuracy;
 
     LocAdapter(Context context,
+                  ArrayList id,
                   ArrayList longitude,
                   ArrayList latitude,
                   ArrayList altitude,
@@ -44,7 +45,7 @@ public class LocAdapter extends RecyclerView.Adapter<LocAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull LocAdapter.MyViewHolder holder, int position) {
-        holder.textid.setText(String.valueOf(id.get(position)));
+        holder.textID.setText(String.valueOf(id.get(position)));
         holder.textLongitude.setText("Connection: " + String.valueOf(longitude.get(position)));
         holder.textLatitude.setText("IP: " + String.valueOf(latitude.get(position)));
         holder.textAltitude.setText("Speed: " +String.valueOf(altitude.get(position)));

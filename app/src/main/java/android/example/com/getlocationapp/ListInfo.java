@@ -5,36 +5,42 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ListInfo {
+public class ListInfo extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DataBase mydb;
-    ArrayList<String> id, connection, ip, speed, rssi, mac, ssid, bssid, frequency, distance;
+
+    ArrayList<String> id, longtitude, latitude, altitude, time, speed, accuracy;
     LocAdapter locAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        recyclerView = recyclerView.findViewById(recyclerView);
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.information_list);
+
+
+        recyclerView = recyclerView.findViewById(R.id.recyclerView);
 
         mydb = new DataBase(ListInfo.this);
         id = new ArrayList<>();
-        connection = new ArrayList<>();
-        ip = new ArrayList<>();
+        longtitude = new ArrayList<>();
+        latitude = new ArrayList<>();
+        altitude = new ArrayList<>();
         speed = new ArrayList<>();
-        rssi = new ArrayList<>();
-        mac = new ArrayList<>();
-        ssid = new ArrayList<>();
-        bssid = new ArrayList<>();
-        frequency = new ArrayList<>();
-        distance =  new ArrayList<>();
+        time = new ArrayList<>();
+        speed = new ArrayList<>();
+        accuracy = new ArrayList<>();
+
 
         informationInArrays();
-        LocAdapter = new LocAdapter(ListInfo.this, id, connection, ip, speed, rssi, mac, ssid, bssid, frequency, distance);
+        locAdapter = new LocAdapter(ListInfo.this, id, longtitude, latitude, altitude, time, speed, accuracy);
         recyclerView.setAdapter(locAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((ListInfo.this)));
 
@@ -49,15 +55,14 @@ public class ListInfo {
         else{
             while(cursor.moveToNext()){
                 id.add(cursor.getString(0));
-                connection.add(cursor.getString(1));
-                ip.add(cursor.getString(2));
+                longtitude.add(cursor.getString(1));
+                latitude.add(cursor.getString(2));
                 speed.add(cursor.getString(3));
-                rssi.add(cursor.getString(4));
-                mac.add(cursor.getString(5));
-                ssid.add(cursor.getString(6));
-                bssid.add(cursor.getString(7));
-                frequency.add(cursor.getString(8));
-                distance.add(cursor.getString(9));
+                altitude.add(cursor.getString(4));
+                speed.add(cursor.getString(5));
+                time.add(cursor.getString(6));
+                speed.add(cursor.getString(7));
+                accuracy.add(cursor.getString(8));
             }
         }
     }

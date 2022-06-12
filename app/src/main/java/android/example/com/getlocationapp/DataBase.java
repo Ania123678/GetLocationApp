@@ -47,8 +47,7 @@ class DataBase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addInfo(String connection, String ip, int speed, int rssi, String mac, String ssid,
-                 String bssid, int frequency, double distance){
+    void addInfo(String longitude, String latitude, String altitude, String time, String speed, String accuracy){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();

@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">GetLocationApp</string>
-    <string name="title_info">Location</string>
-    <string name="save">Save</string>
+    <string name="title_info">Basic Location</string>
+    <string name="show">Show</string>
 </resources>
