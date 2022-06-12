@@ -10,7 +10,7 @@
     tools:context=".ListInfo">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerView_id"
         android:layout_width="354dp"
         android:layout_height="564dp"
         app:layout_constraintBottom_toBottomOf="parent"

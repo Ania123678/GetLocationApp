@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class LocAdapter extends RecyclerView.Adapter<LocAdapter.MyViewHolder> {
 
-    Context context;
-    ArrayList<String> id, longitude, latitude, altitude, time, speed, accuracy;
+    private Context context;
+    private ArrayList id, longitude, latitude, altitude, time, speed, accuracy;
 
     LocAdapter(Context context,
                   ArrayList id,
@@ -46,12 +46,12 @@ public class LocAdapter extends RecyclerView.Adapter<LocAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull LocAdapter.MyViewHolder holder, int position) {
         holder.textID.setText(String.valueOf(id.get(position)));
-        holder.textLongitude.setText("Connection: " + String.valueOf(longitude.get(position)));
-        holder.textLatitude.setText("IP: " + String.valueOf(latitude.get(position)));
-        holder.textAltitude.setText("Speed: " +String.valueOf(altitude.get(position)));
-        holder.textTime.setText("RSSI: " + String.valueOf(time.get(position)));
-        holder.textSpeed.setText("MAC: " + String.valueOf(speed.get(position)));
-        holder.textAccuracy.setText("SSID: " + String.valueOf(accuracy.get(position)));
+        holder.textLongitude.setText("Longitude: " + String.valueOf(longitude.get(position)));
+        holder.textLatitude.setText("Latitude: " + String.valueOf(latitude.get(position)));
+        holder.textAltitude.setText("Altitude: " +String.valueOf(altitude.get(position)));
+        holder.textTime.setText("Time: " + String.valueOf(time.get(position)));
+        holder.textSpeed.setText("Speed: " + String.valueOf(speed.get(position)));
+        holder.textAccuracy.setText("Accuracy: " + String.valueOf(accuracy.get(position)));
     }
 
     @Override
@@ -61,8 +61,7 @@ public class LocAdapter extends RecyclerView.Adapter<LocAdapter.MyViewHolder> {
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView textID, textLongitude, textLatitude, textAltitude, textTime, textSpeed, textAccuracy;
-        LinearLayout mainLayout;
+        TextView textID, textLongitude, textLatitude, textAltitude, textTime, textSpeed, textAccuracy;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
