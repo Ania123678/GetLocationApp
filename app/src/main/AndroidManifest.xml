@@ -13,19 +13,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GetLocationApp">
+
         <activity
             android:name=".ListInfo"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".CurrentLocationInfo"
+            android:exported="false"
             android:label="Show Locations Info"
-            android:parentActivityName = ".MainActivity"
-            android:exported="false" />
+            android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:label="Get Location">
+            android:label="Get Location"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
