@@ -95,18 +95,17 @@
     <!--****************************opisy wartosci****************************-->
 
 
-
     <Button
         android:id="@+id/buttonSave"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:layout_marginStart="72dp"
         android:layout_marginEnd="72dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="28dp"
         android:text="save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -165,15 +164,43 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="12dp"
         android:text="accuracy"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSave"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="88dp"
+        android:text="mean: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/mean1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <!--    erfffffffffffffffffffffffffffffffff-->
+    <TextView
+        android:id="@+id/mean1"
+        android:layout_width="100dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="88dp"
+        android:text="---"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/mean2" />
 
+    <TextView
+        android:id="@+id/mean2"
+        android:layout_width="100dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="88dp"
+        android:text="---"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
