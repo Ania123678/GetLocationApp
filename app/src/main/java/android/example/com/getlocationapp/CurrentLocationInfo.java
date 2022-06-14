@@ -69,14 +69,7 @@ public class CurrentLocationInfo extends Fragment implements LocationListener {
         myView = inflater.inflate(R.layout.location_info, container, false);
 
        // ----------------------- przycisk do zapisywania danych w bazie danych  ----------------------- //
-        Button buttonSave = myView.findViewById(R.id.buttonSave);
-        buttonSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DataBase myDB = new DataBase();
-                myDB.addInfo(longitude, latitude, altitude, time, speed, accuracy);
-            }
-        });
+
 
         LocationManager lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 1, this);
@@ -103,7 +96,8 @@ public class CurrentLocationInfo extends Fragment implements LocationListener {
             String time = String.valueOf(location.getTime());
             String speed = String.valueOf(location.getSpeed());
             String accuracy = String.valueOf(location.getAccuracy());
-
+            double mean1 = 0;
+            double mean2 = 0;
 
             textLongitude.setText(String.valueOf(longitude));
             textLatitude.setText(String.valueOf(latitude));
@@ -111,6 +105,17 @@ public class CurrentLocationInfo extends Fragment implements LocationListener {
             textTime.setText(time);
             textSpeed.setText(speed);
             textAccuracy.setText(accuracy);
+
+            Button buttonSave = myView.findViewById(R.id.buttonSave);
+            buttonSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String longitude = String.valueOf(location.getLongitude());
+                    String latitude = String.valueOf(location.getLatitude());
+                    myDB = DataBase.getInstance(getActivity());
+                    myDB.addInfo(longitude, latitude, altitude, time, speed, accuracy);
+                }
+            });
 
 
             if(counter <= 4){
@@ -127,14 +132,14 @@ public class CurrentLocationInfo extends Fragment implements LocationListener {
                         sum1 += l1;
                     }
                     TextView textmean1 = myView.findViewById(R.id.mean1);
-                    double mean1  = sum1 / array1.size();
+                    mean1  = sum1 / array1.size();
                     textmean1.setText(String.valueOf(mean1));
 
                     for (double l2 : array2) {
                         sum2 += l2 ;
                     }
                     TextView textmean2 = myView.findViewById(R.id.mean2);
-                    double mean2  = sum2 / array2.size();
+                    mean2  = sum2 / array2.size();
                     textmean2.setText(String.valueOf(mean2));
                 }
                 counter = 0;

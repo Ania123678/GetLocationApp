@@ -23,9 +23,19 @@ class DataBase extends SQLiteOpenHelper {
     private static final String COLUMN_SPEED = "speed";
     private static final String COLUMN_ACCURACY = "accuracy";
 
-    public DataBase(@Nullable Context context) {
+
+    public DataBase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
+    }
+    private static DataBase databaseInstance = null;
+    public static DataBase getInstance(Context context) {
+        if (databaseInstance == null) {
+
+            databaseInstance = new DataBase(context);
+
+        }
+        return databaseInstance;
     }
 
     @Override
