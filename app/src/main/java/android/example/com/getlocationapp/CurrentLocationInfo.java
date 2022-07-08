@@ -151,24 +151,23 @@ public class CurrentLocationInfo extends Fragment implements LocationListener {
         }
     }
 
-
-    @Override
-    public void onFlushComplete(int requestCode) {
-        LocationListener.super.onFlushComplete(requestCode);
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-        LocationListener.super.onStatusChanged(provider, status, extras);
-    }
-
-    @Override
-    public void onProviderEnabled(@NonNull String provider) {
-        LocationListener.super.onProviderEnabled(provider);
-    }
-
-    @Override
-    public void onProviderDisabled(@NonNull String provider) {
-        LocationListener.super.onProviderDisabled(provider);
-    }
+//    @Override
+//    public void onFlushComplete(int requestCode) {
+//        LocationListener.super.onFlushComplete(requestCode);
+//    }
+//
+//    @Override
+//    public void onStatusChanged(String provider, int status, Bundle extras) {
+//        LocationListener.super.onStatusChanged(provider, status, extras);
+//    }
+//
+//    @Override
+//    public void onProviderEnabled(@NonNull String provider) {
+//        LocationListener.super.onProviderEnabled(provider);
+//    }
+//
+//    @Override
+//    public void onProviderDisabled(@NonNull String provider) {
+//        LocationListener.super.onProviderDisabled(provider);
+//    }
 }

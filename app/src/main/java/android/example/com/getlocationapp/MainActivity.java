@@ -28,6 +28,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -36,10 +37,8 @@ public class MainActivity extends AppCompatActivity {
     public static final int PERMISSION_FINE_LOCATION = 1;
 
     Button buttonPermission;
-    Button buttonShow;
-    Button buttonShowList;
-
-
+    FloatingActionButton buttonShowList;
+    FloatingActionButton button_gotoLocationData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +64,20 @@ public class MainActivity extends AppCompatActivity {
         //  ---------------------------------------------- //
 
 
-        //  ----------------------- przycisk do wyswietlania danych lokalizacji   ----------------------- //
-        Button buttonShow = findViewById(R.id.buttonShow);
-        buttonShow.setOnClickListener(this::onClick);
+        //  ----------------------- przycisk przekierowuje do ekranu z danymi lokalizacji  ----------------------- //
+        button_gotoLocationData = findViewById(R.id.button_gotoLocationData);
+        button_gotoLocationData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LocationData.class);
+                startActivity(intent);
+            }
+        });
         //  ---------------------------------------------- //
 
-        //  ----------------------- przycisk do przekierowania do listy danych  ----------------------- //
-        Button buttonShowList = findViewById(R.id.buttonShowList);
+
+        //  ----------------------- przycisk do przekierowania do ekranu z listą lokalizacji z bazy danych  ----------------------- //
+        buttonShowList = findViewById(R.id.buttonShowList);
         buttonShowList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,12 +86,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //  ---------------------------------------------- //
-    }
-
-    public void onClick(View w){
-        if(w.getId()==R.id.buttonShow){
-            getSupportFragmentManager().beginTransaction().replace(R.id.container,new CurrentLocationInfo()).commit();
-        }
     }
 
 
